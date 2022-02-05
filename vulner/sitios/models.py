@@ -109,9 +109,9 @@ class Dependencias(models.Model):
     dependenciasTipo= models.ForeignKey('sitios.DependenciasTipo', default=1, on_delete=models.PROTECT, null=True)
     serviciosSedes = models.ForeignKey('sitios.ServiciosSedes', default=1, on_delete=models.PROTECT, null=True, related_name ='serviciosSedes1')
     sedesClinica = models.ForeignKey('sitios.SedesClinica', default=1, on_delete=models.PROTECT, null=True)
-    servicios = models.ForeignKey('clinico.Servicios', default=1, on_delete=models.PROTECT, null=True)
 
-    servicios = ChainedForeignKey(ServiciosSedes, chained_field='servicios', chained_model_field='servicios',
+
+    servicios = ChainedForeignKey(ServiciosSedes, chained_field='sedesClinica', chained_model_field='sedesClinica',
                                  show_all=False)
     numero =  models.CharField(max_length=50, default="")
     nombre = models.CharField(max_length=50)

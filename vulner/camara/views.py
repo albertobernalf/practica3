@@ -80,7 +80,7 @@ def accesoEspecialidadMedico(request, documento):
     print (documento)
 
 
-    miConexion = MySQLdb.connect(host='192.168.0.14', user='root', passwd='', db='vulnerable2')
+    miConexion = MySQLdb.connect(host='192.168.0.14', user='root', passwd='', db='vulnerable5')
     cur = miConexion.cursor()
     comando = "select e.id id ,e.nombre nombre from clinico_especialidadesmedicos c, clinico_especialidades e , planta_planta p where p.documento = '" + documento + "' AND c.id_medico_id=p.id and c.id_especialidad_id=e.id"
     cur.execute(comando)
