@@ -1,0 +1,34 @@
+{% extends "menu.html" %}
+{% load static %}
+
+{% block content %}
+</br>
+</br>
+</br>
+
+<form action="/camara" method="POST" id="formFoto" name="formFoto">
+ <div class="form-group">
+      <div class="row">
+          <div class="col">
+
+                    <label for="nombre">Nombre Fotografia</label>
+                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre">
+          </div>
+           <div  class="col" id="btnTomaFoto"  >
+             <button type="button" class="btn btn-primary" id="btnTomaFoto"   >Tomar Fotografias</button>
+           </div>
+              <div  class="col" id="btnReproducir"  >
+               <button type="button" class="btn btn-primary" id="btnReproducir"   >Reproducir Audio</button>
+           </div>
+        </div>
+
+    </div>
+        <div class="row">
+
+               <div  class="col" id="mensajes"  name=mensajes" style=";font-size:25px;color:blue;";></div>
+
+
+         </div>
+</form>
+{% endblock %}
+

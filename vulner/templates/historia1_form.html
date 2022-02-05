@@ -1,0 +1,105 @@
+{% extends "menu.html" %}
+{% load static %}
+
+{% block content %}
+
+
+</br>
+    </br>
+<form action="" method="post" id="formHistoria" name="formHistoria">
+
+    <div  class="col" id="mensajes"  name=mensajes" style=";font-size:15px;color:green;";>
+
+       {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+        </div>
+        <div class="form-control">
+    <div class="form-group">
+      <div class="row">
+          <div class="col">
+
+               {{ form.id_tipo_doc.label }}
+
+                {{ form.id_tipo_doc }}
+          </div>
+            <div class="col">
+
+                {{ form.documento.label }}
+
+                {{ form.documento }}
+          </div>
+             <div class="col">
+                  {{ form.folio.label }}
+                {{ form.folio }}
+          </div>
+             <div class="col">
+
+
+                {{ form.fecha.label }}
+                  <input type="text" class="form-control" id="fecha" name="fecha" value={{ form.fecha }}>
+
+             </div>
+
+          <div class="col">
+             {{ form.id_especialidad.label }}
+                {{ form.id_especialidad }}
+          </div>
+            <div class="col">
+                 {{ form.id_medico.label }}
+                {{ form.id_medico }}
+          </div>
+      </div>
+
+         <div class="row">
+
+             <div class="col">
+              {{ form.motivo.label }}
+                {{ form.motivo }}
+          </div>
+              <div class="col">
+                   <input type="button" id="btnmotivoSeñas" value="Motivo x Señas" />
+                </div>
+               <div class="col">
+                  {{ form.objetivo.label }}
+                {{ form.objetivo }}
+          </div>
+             <div class="col">
+                   <input type="button" id="btnsubjetivoSeñas" value="Subjetivo x Señas" />
+                </div>
+             <div class="col">
+                   {{ form.subjetivo.label }}
+                {{ form.subjetivo }}
+          </div>
+      </div>
+
+         <div class="row">
+          <div class="col">
+               {{ form.analisis.label }}
+                {{ form.analisis }}
+          </div>
+            <div class="col">
+                {{ form.plan.label }}
+                {{ form.plan }}
+          </div>
+             <div class="col">
+                {{ form.estado_folio.label }}
+                {{ form.estado_folio }}
+          </div>
+       <div class="col">
+                <input type="submit" value="Enviar" />
+          </div>
+
+
+      </div>
+
+  </div>
+
+</form>
+
+
+{% endblock %}

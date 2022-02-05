@@ -1,0 +1,86 @@
+{% extends "menuMedico.html" %}
+{% load static %}
+
+{% block content %}
+
+
+
+<!-- Container -->
+<div id="container">
+
+
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+
+<h1 id="site-name"><a href="/admin/">Seleccion Especialidad</a></h1>
+
+        </div>
+
+
+    </div>
+    <!-- END Header -->
+
+
+
+    <div class="main shifted" id="main">
+
+
+
+      <div class="content">
+
+
+
+        <!-- Content -->
+        <div id="content" class="colM">
+
+
+
+
+
+
+
+
+<div id="content-main">
+
+
+
+<form action="historiaView/{{documento}}" method="get" id="login-form"><input type="hidden" name="csrfmiddlewaretoken" value="MJ1CwN7LHRoBZUnyQoPpHBnb4M3PwGYmsLJeNsN92l41zY9ZaUPztrhcMWyUTHxc">
+
+    <div class="form-row">
+
+
+        <label for="seleccion1" class="col-form-label">Especialidad:</label>
+        <select id="seleccion1" name="seleccion1">
+            {% for perfiles in Perfiles %}
+            <option value="{{perfiles.id}}"> {{perfiles.nombre}}</option>
+            {% endfor %}
+        </select>
+
+
+
+   <!--  <label class="required" for="id_perfil">Perfil:</label> <input type="text" name="perfil" autofocus="" autocapitalize="none" autocomplete="perfil" maxlength="150" required="" id="id_perfil">  -->
+  </div>
+
+
+  <div class="submit-row">
+    <input type="submit" value="Ingresar">
+  </div>
+</form>
+
+</div>
+
+
+          <br class="clear">
+        </div>
+        <!-- END Content -->
+        <div id="footer"></div>
+      </div>
+    </div>
+</div>
+<!-- END Container -->
+
+<!-- class="nav-link"  borrar esto -->
+
+
+{% endblock %}

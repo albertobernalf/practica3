@@ -1,0 +1,181 @@
+{% extends "menuMedico.html" %}
+{% load static %}
+
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+</br>
+</br>
+<form action="" method="post" id="formHistoria" name="formHistoria">
+        <input type="hidden" class="form-control" id="folio_oculto" name="folio_oculto" value="0" >
+    <div  class="col" id="mensajes"  name=mensajes" style=";font-size:15px;color:green;";>
+            {% if messages %}
+        <ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    </div>
+    <div class="form-control">
+    <div class="form-group">
+
+      <div class="row">
+          <div class="col">
+
+               {{ form.id_tipo_doc.label}}
+
+                {{ form.id_tipo_doc}}
+          </div>
+            <div class="col">
+
+                {{ form.documento.label }}
+
+                {{ form.documento }}
+          </div>
+             <div class="col">
+                  {{ form.folio.label }}
+                {{ form.folio }}
+          </div>
+             <div class="col">
+
+
+                {{ form.fecha.label }}
+                  <input type="text" class="form-control" id="fecha" name="fecha" value={{ form.fecha }}>
+
+             </div>
+
+          <div class="col">
+             {{ form.id_especialidad.label }}
+                {{ form.id_especialidad }}
+          </div>
+            <div class="col">
+                 {{ form.id_medico.label }}
+                {{ form.id_medico }}
+          </div>
+      </div>
+
+         <div class="row">
+
+             <div class="col">
+              {{ form.motivo.label }}
+                {{ form.motivo }}
+                 <div class=""row">
+                         <div class="col">
+                             <input type="button" id="btnmotivoSeñas" value="Señas Discapacitado" />
+                             <input type="button" id="btnmotivoInvidente" value="Motivo Invidente" />
+                             <input type="button" id="btnResmotivoInvidente" value="Respuesta Motivo" />
+                        </div>
+                 </div>
+
+             </div>
+
+               <div class="col">
+                  {{ form.objetivo.label }}
+                {{ form.objetivo }}
+
+              </div>
+            <div class="col">
+                   {{ form.subjetivo.label }}
+                {{ form.subjetivo }}
+                  <div class=""row">
+                         <div class="col">
+                             <input type="button" id="btnsubjetivoSeñas" value="Señas Discapacitado" />
+                             <input type="button" id="btnsubjetivoInvidente" value="Subjetivo Invidente" />
+                             <input type="button" id="btnRessubjetivoInvidente" value="Respuesta Subjetivo" />
+                        </div>
+                  </div>
+
+
+          </div>
+      </div>
+    <br>
+
+         <div class="row">
+          <div class="col">
+               {{ form.analisis.label }}
+                {{ form.analisis }}
+          </div>
+            <div class="col">
+                {{ form.plan.label }}
+                {{ form.plan }}
+          </div>
+
+       <div class="col">
+                {{ form.estado_folio.label }}
+                {{ form.estado_folio }}
+                <input type="button" id= "btnFolio" value="Conseguir Folio" />
+                <input type="submit" value=" Guardar " />
+          </div>
+
+
+      </div>
+
+  </div>
+
+</form>
+</br>
+<center><h5><b>EXAMENES PARACLINICOS A SOLICITAR</b></h5> </center>
+</br>
+<form action="" method="post" id="formClinicos" name="formClinicos">
+
+<center>
+
+    {{ form2.id_TipoExamen }}
+    {{ form2.id_examen }}
+    {{ form2.cantidad }}
+
+      <input type="hidden" class="form-control" id="id_tipo_doc" name="id_tipo_doc" >
+      <input type="hidden" class="form-control" id="documento" name="documento" >
+      <input type="hidden" class="form-control" id="folio" name="folio" >
+      <input type="hidden" class="form-control" id="fecha" name="fecha" >
+      <input type="hidden" class="form-control" id="estado_folio" name="estado_folio" >
+
+
+    <input type="button" id="btnAdicionarExamen" value="Adicionar" />
+
+    </center>
+<div class="container">
+
+     <div class="scrollable">
+           <center>
+    <table  cellspacing="0" width="100%" class="table  table-fixed " id="Examenes" >
+
+        <thead>
+        <tr>
+
+        <th style="width:40%">Tipo Examen</th>
+
+        <th style="width:40%">Examen</th>
+        <th style="width:10%">Cantidad</th>
+         <th class="col-xs-1">  BORRAR </th>
+
+            <th data-visible="false"></th>
+            <th data-visible="false"></th>
+            <th data-visible="false"></th>
+            <th data-visible="false"></th>
+            <th data-visible="false"></th>
+            <th data-visible="false"></th>
+            <th data-visible="false"></th>
+
+
+
+        </tr>
+        </thead>
+
+        <tfoot>
+        </tfoot>
+
+    </table>
+          </center>
+     </div>
+
+</div>
+
+
+</form>
+
+{% endblock %}

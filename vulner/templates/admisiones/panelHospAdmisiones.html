@@ -1,0 +1,232 @@
+{% extends "admisiones/menuAdmisiones.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<!-- <div class="container">  -->
+       </hr>
+
+    <div class="row">
+
+        <div   class="col-lg-12" style="background-color:LightGray;">
+           <div class="card-block">
+                <div style="height: 100px; ">
+               <!--     <table class="table  " style="height: 100px; background-color:LightGray; border: 2px solid black; border-radius: 100px; width:99%;"> -->
+
+
+                         <tr >
+                        <!-- iNGRESAR UN FORMULARIO AQUIP -->
+                   <!--   <div class="container"> -->
+                        <form class="form-inline" action="/buscarAdmision/" method="post" id="login-form"><input type="hidden"
+                                                                                       name="csrfmiddlewaretoken"
+                                                                                       value="MJ1CwN7LHRoBZUnyQoPpHBnb4M3PwGYmsLJeNsN92l41zY9ZaUPztrhcMWyUTHxc">
+                        <div class="form-group">
+                            <label class="required" for="busHabitacion">Habitacion:</label>
+
+                          <input type = "text"  id="busHabitacion"  name="busHabitacion"          ></input>
+
+                        </div>
+
+                            <div class="form-group">
+                            <label class="required" for="busTipoDoc">TipoDoc:</label>
+
+                          <input type = "text"  id="busTipoDoc"  name="busTipoDoc"          ></input>
+
+                        </div>
+
+
+                            <div class="form-group">
+                            <label class="required" for="busDocumento">Documento:</label>
+
+                          <input type = "text"  id="busDocumento"  name="busDocumento"          ></input>
+
+                        </div>
+
+
+
+                            <div class="form-row">
+                            <label class="required" for="busDocumento">Paciente:</label>
+
+                          <input type = "text"  id="busPaciente"  name="busPaciente"          ></input>
+
+                        </div>
+
+
+                            <div class="form-group">
+                            <label class="required" for="busDesde">Desde:</label>
+
+                          <input type = "text"  id="busDesde"  name="busDesde"          ></input>
+
+                        </div>
+
+                    <div class="form-group">
+                            <label class="required" for="busHasta">Desde:</label>
+
+                          <input type = "text"  id="busHasta"  name="busHasta"    ></input>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+
+                            <input type="text" id= "Sede"     name="Sede" value="{{Sede}}">
+                            <input type="text" id= "Servicio" name="Servicio" value="{{Servicio}}">
+                        </div>
+
+
+
+
+
+
+                        <span id="error" name="error" style="color:blue">{{Error}}</span>
+
+
+                        <div class="submit-row">
+                            <input type="submit" value="BUSCAR">
+                        </div>
+                    </form>
+               <!--   <div/> -->
+                        <tr />
+
+                        <!-- fim formulario -->
+
+
+                        <tr style="high:30%">
+
+
+
+
+
+
+
+                        </tr>
+
+
+
+                <!--    </table>  -->
+                </div>
+                </hr>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12" style="background-color:LightGray;">
+
+
+            <div class="card-block">
+                <div style="height: 600px; overflow: auto">
+                    <table class="table table-hover"  style="height: 600px , background-color:LightGray; border: 2px solid black; border-radius: 10px; width:99%;">
+
+                        <tr>
+
+                     <td>dato_1</td>
+                             <td>dato_2</td>
+                             <td>dato_3</td>
+                        </tr>
+
+                                                <tr>
+
+                     <td>dato_1</td>
+                             <td>dato_2</td>
+                             <td>dato_3</td>
+                        </tr>
+
+
+                                                <tr>
+
+                     <td>dato_1</td>
+                             <td>dato_2</td>
+                             <td>dato_3</td>
+                        </tr>
+                             <tr>
+
+                     <td>{{Documento}}</td>
+                             <td>{{Sede}}</td>
+                             <td>{{Perfil}}</td>
+                                 <td>{{NombreSede}}</td>
+                                 <td>{{Servicio}}</td>
+                        </tr>
+
+
+                    </table>
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+<div class="row" >
+
+    <div class="col-lg-12" style="background-color:LightGray;">
+
+
+        <div class="card-block">
+                <div style="height: 150px; overflow: auto">
+                    <table class="table " style="height: 100px, background-color:LightGray; border: 2px solid black; border-radius: 10px;width:99%;">
+
+
+
+                        <tr>
+                            <td></td>
+
+                            <td> <input type="button" id="btnCrearIngreso" name="btnCrearIngreso" value="Crear Ingreso"> </input>             </td>
+                            <td> <input type="button" id="btnResponsables" name="btnResponsables" value="Responsables"> </input>             </td>
+                            <td> <input type="button" id="btnAbonos" name="btnAbonos" value="Abonos"> </input>             </td>
+                            <td> <input type="button" id="btnCambioServicios" name="btnCambioServicios" value = "Cambio Servicio"></input>             </td>
+                            <td> <input type="button" id="btnHabitaciones" name="btnHabitaciones" value = "Habitaciones"></input>             </td>
+                            <td> <input type="button" id="btnAutorizaciones" name="btnAutorizaciones" value = "Autorizaciones"></input>             </td>
+                               <td></td>
+                              <td></td>
+                        </tr>
+
+                        <tr>
+                                  <td></td>
+
+                            <td> <input type="button" id="btnCenso" name="btnCenso" value="Censo"> </input>             </td>
+                            <td> <input type="button" id="btnUsuarios" name="btnUsuarios" value = "Datos usuarios"></input>             </td>
+                            <td></td>
+                              <td></td>
+                             <td></td>
+                              <td></td>
+                              <td>Usuario: Alberto Bernal   </td>
+                            <td></td>
+                        </tr>
+
+
+                    </table>
+                </div>
+                </hr>
+
+
+            </div>
+
+
+
+
+    </div>
+
+</div>
+
+
+<!-- </div>  -->
+
+
+{% endblock %}
+
