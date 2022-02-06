@@ -16,7 +16,7 @@
                         <tr >
                         <!-- iNGRESAR UN FORMULARIO AQUIP -->
                    <!--   <div class="container"> -->
-                        <form class="form-inline" action="/buscarAdmision/" method="post" id="login-form"><input type="hidden"                                                                                   name="csrfmiddlewaretoken"
+                        <form class="form-inline" action="/buscarAdmision/" method="post" id="FormBuscar"><input type="hidden"                                                                                   name="csrfmiddlewaretoken"
                                                                                        value="MJ1CwN7LHRoBZUnyQoPpHBnb4M3PwGYmsLJeNsN92l41zY9ZaUPztrhcMWyUTHxc">
 
                         <div class="form-group">
@@ -180,11 +180,7 @@
 
 
 
-                        </thead>
-
-            <tbody>
-
-				 {% for ingresos in Ingresos %}
+                        </thead> {% for ingresos in Ingresos %}
 				 <tr>
 					<td>{{ ingresos.tipoDoc }}</td>
                      <td>{{ ingresos.Documento }}</td>
@@ -194,7 +190,7 @@
                      <td>{{ ingresos.FechaSalida }}</td>
                      <td>{{ ingresos.servicioNombreIng }}</td>
                      <td>{{ ingresos.camaNombreIng }}</td>
-                     <td>{{ ingresos.dxActual }}</td>
+                     <td>{{ ingresos.DxActual }}</td>
 
 
 
@@ -203,6 +199,10 @@
 
 				 </tr>
 				 {% endfor %}
+
+            <tbody>
+
+
 
 				</tbody>
 
@@ -293,7 +293,7 @@
                               <td></td>
                              <td></td>
                               <td></td>
-                              <td>Usuario: Alberto Bernal   </td>
+                              <td>Colaborador : {{Documento}}   </td>
                             <td></td>
                         </tr>
 

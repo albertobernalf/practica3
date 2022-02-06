@@ -86,7 +86,9 @@
   </div>
     <form class="form-inline my-2 my-lg-0">
 
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="button">{{NombreSede}}</button>
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="button">{% for nombreSede in NombreSede%}
+             {{ nombreSede.nombre}}
+        {% endfor %}</button>
                  <button class="btn btn-outline-success my-2 my-sm-0" type="button">ADMISIONES - HOSPITALIZACION</button>
              </form>
 </nav>
@@ -559,7 +561,7 @@ $("#btnmotivoInvidente").click(function(){
 
 
 
-$(document).on('change', '#extraServicio', function(event) {
+$(document).on('change', '#id_extraServicio', function(event) {
 
         alert("Entre Servicio Extra");
         var Serv =   $("#busServicio option:selected").text();

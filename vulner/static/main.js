@@ -25,9 +25,15 @@ console.log(form2)
 $(document).on('change', '#busServicio', function(event) {
 
 
-        var Serv =   $("#busServicio option:selected").text();
+
+       var Serv =   $(this).val()
 
         var Sede =  document.getElementById("Sede").value;
+       // var Sede1 = document.getElementById("FormBuscar").elements["Sede"];
+
+        alert("Sede = ", Sede);
+    //    alert("Sede1 = ", Sede1);
+
 
         $.ajax({
 	           url: '/buscarHabitaciones',
@@ -58,6 +64,8 @@ $(document).on('change', '#busServicio', function(event) {
 
 
 
+
+
                     },
 	   		    error: function (request, status, error) {
 
@@ -70,10 +78,13 @@ $(document).on('change', '#busServicio', function(event) {
 
 
 
-$(document).on('change', '#extraServicio_id', function(event) {
+$(document).on('change', '#busServicio2', function(event) {
 
-        alert("Entre Servicio Extra");
-        var Serv =   $("#busServicio option:selected").text();
+
+
+       var Serv =   $(this).val()
+
+
 
         var Sede =  document.getElementById("Sede").value;
 
@@ -90,10 +101,12 @@ $(document).on('change', '#extraServicio_id', function(event) {
 	  		  var dato = JSON.parse(respuesta);
 
 
-                     const $id2 = document.querySelector("#busHabitacion");
 
 
- 	      		     $("#busHabitacion").empty();
+                     const $id2 = document.querySelector("#id_dependenciasIngreso");
+
+
+ 	      		     $("#id_dependenciasIngreso").empty();
 
 
 	                 $.each(dato, function(key,value) {

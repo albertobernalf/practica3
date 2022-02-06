@@ -6,117 +6,126 @@
 <!-- <div class="form-group"> -->
 
 
-
 <form class="form-inline" action="" method="POST" id="grabacionForma">
 
     <input type="hidden" id="Sede" name="Sede" value="{{Sede}}">
-<input type="hidden" id="Servicio" name="Servicio" value="{{Servicio}}">
-<input type="hidden" id="Perfil" name="Perfil" value="{{Perfil}}">
+    <input type="hidden" id="Servicio" name="Servicio" value="{{Servicio}}">
+    <input type="hidden" id="Perfil" name="Perfil" value="{{Perfil}}">
     <input type="hidden" id="Username" name="Username" value="{{Username}}">
-     <input type="hidden" id= "Username_id" name="Username_id" value="{{Username_id}}">
+    <input type="hidden" id="Username_id" name="Username_id" value="{{Username_id}}">
 
-<table class="table  " style="height: 100px; background-color:LightGray;  width:100%;">
-
-    <td></td>
-    <td>
-        <table class="table  "
-               style="height: 100px; background-color:LightGray; border: 2px solid black; border-radius: 100px; width:100%;">
-
-            <tr>
-                <div class="form-group row">
-                    <td>
-                        {{ form.sedesClinica.label }}
-                        {{form.sedesClinica}}
-
-                    <td>
-
-                    <td>
-                        {{ form.tipoDoc.label }}
-                        {{form.tipoDoc}}
-
-                    <td>
-                        {{ form.documento.label }}
-                        {{form.documento}}
-                    </td>
-
-                             <td>
-                        {{ form.fechaIngreso.label }}
-                        <input type="date" class="form-control" id="fechaIngreso" name="fechaIngreso" value={{
-                               form.fechaIngreso }}/>
-
-                    </td>
-                </div>
-            </tr>
-            <tr>
-
-                <div class="form-group row">
+    <table class="table  " style="height: 100px; background-color:LightGray;  width:100%;">
 
 
+        <td></td>
+        <td>
+            <table class="table  "
+                   style="height: 100px; background-color:LightGray; border: 2px solid black; border-radius: 100px; width:100%;">
 
-                     <td>
-                      {{ form.extraServicio.label }}
-                        {{form.extraServicio}}
-                       </td>
-                         <td>
-                        {{ form.dependenciasIngreso.label }}
-                        {{form.dependenciasIngreso}}
-                    </td>
 
-                 </td>
-                    <td>
-                        {{ form.dxIngreso.label }}
-                        {{form.dxIngreso}}
-                    </td>
+                <tr>
+                    <div class="form-group row">
+                        <td>
+                            Sede:
+                            {{Sede}}
+                        {% for nombreSede in NombreSede%}
+             {{ nombreSede.nombre}}
+        {% endfor %}
 
                         <td>
-                        {{ form.medicoIngreso.label }}
-                        {{form.medicoIngreso}}
-                    </td>
 
-
-
-
-
-                </div>
-            </tr>
-
-            <tr>
-                 <div class="form-group row">
                         <td>
-                        {{ form.estadoSalida.label }}
-                        {{form.estadoSalida}}
-                    </td>
-                     </div>
 
-            </tr>
-             <tr>
-               <td><input type="submit" id="guardarAdmision" name="guardarAdmision" value="GRABARFORMA"></input></td>
+                            <label for="busServicio2" class="col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Servicio:</label>
+                            <select id="busServicio2" name="busServicio2">
+                                {% for servicios in Servicios %}
+                                <option value="{{servicios.id}}"> {{servicios.nombre}}</option>
+                                {% endfor %}
+                            </select>
+
+                        </td>
+
+                        <td>
+                            {{ form.dependenciasIngreso.label }}
+                            {{form.dependenciasIngreso}}
+                        </td>
 
 
-             </tr>
-   </form>
+
+                    </div>
+                </tr>
+
+                <tr>
+
+                    <div class="form-group row">
+                        <td>
+                            {{ form.tipoDoc.label }}
+                            {{form.tipoDoc}}
+                        </td>
+
+                        <td>
+                            {{ form.documento.label }}
+                            {{form.documento}}
+                        </td>
+
+                        <td>
+                            {{ form.fechaIngreso.label }}
+                            <input type="date" class="form-control" id="fechaIngreso" name="fechaIngreso" value={{
+                                   form.fechaIngreso }}/>
+
+                        </td>
+
+                        <td>
+                            {{ form.dxIngreso.label }}
+                            {{form.dxIngreso}}
+                        </td>
+
+                        <td>
+                            {{ form.medicoIngreso.label }}
+                            {{form.medicoIngreso}}
+                        </td>
 
 
+                    </div>
+                </tr>
 
-            <form class="form-inline" action="/retornarAdmision/{{Sede }},  {{Perfil }} , {{Username }},  {{Username_id }} " method="POST"
-                  id="login-form"><input type="hidden"
-                                         name="csrfmiddlewaretoken"
-                                         value="MJ1CwN7LHRoBZUnyQoPpHBnb4M3PwGYmsLJeNsN92l41zY9ZaUPztrhcMWyUTHxc">
+                <tr>
+                    <div class="form-group row">
+                        <td>
+                            {{ form.estadoSalida.label }}
+                            {{form.estadoSalida}}
+                        </td>
+                    </div>
 
-                <input type="hidden" id="Sede" name="Sede" value="{{Sede}}">
-<input type="hidden" id="Servicio" name="Servicio" value="{{Servicio}}">
-<input type="hidden" id="Perfil" name="Perfil" value="{{Perfil}}">
+                </tr>
+                <tr>
+                    <td><input type="submit" id="guardarAdmision" name="guardarAdmision" value="GRABAR"></input></td>
+
+
+                </tr>
+</form>
+
+
+<form class="form-inline" action="/retornarAdmision/{{Sede }},  {{Perfil }} , {{Username }},  {{Username_id }} "
+      method="POST"
+      id="login-form"><input type="hidden"
+                             name="csrfmiddlewaretoken"
+                             value="MJ1CwN7LHRoBZUnyQoPpHBnb4M3PwGYmsLJeNsN92l41zY9ZaUPztrhcMWyUTHxc">
+
+    <input type="hidden" id="Sede" name="Sede" value="{{Sede}}">
+    <input type="hidden" id="Servicio" name="Servicio" value="{{Servicio}}">
+    <input type="hidden" id="Perfil" name="Perfil" value="{{Perfil}}">
     <input type="hidden" id="Username" name="Username" value="{{Username}}">
-     <input type="hidden" id= "Username_id" name="Username_id" value="{{Username_id}}">
+    <input type="hidden" id="Username_id" name="Username_id" value="{{Username_id}}">
 
-              <td><input type="submit" id="retornarAdmision" name="retornarAdmision" value="CANCELAR"></input></td>
-
-
-            </form>
+    <td><input type="submit" id="retornarAdmision" name="retornarAdmision" value="CANCELAR"></input></td>
 
 
-        </table>
-    </td>
-    <td></td>
+</form>
+
+
+</table>
+</td>
+<td></td>
 </table>
 {% endblock %}
